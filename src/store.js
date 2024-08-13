@@ -31,3 +31,19 @@ store.dispatch({type: 'account/withdraw', payload: 200})
 store.dispatch({type: 'account/requestLoan', payload: { amount: 1000, purpose: "Buy a car" },
 })
 
+function deposit(amount) {
+    return {type: 'account/deposit', payload: amount}
+}
+
+function withdraw(amount) {
+    return {type: 'account/withdraw', payload: amount}
+}
+
+function requestLoan(amount, purpose) {
+    return {type: 'account/requestLoan', payload: { amount, purpose }
+    }
+}
+
+function payloan() {
+    return { type: 'account/payLoan'}
+}

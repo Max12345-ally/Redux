@@ -1,12 +1,18 @@
 import { createStore } from "redux"; 
 
-const initialState = {
+const initialStateAccount = {
     balance: 0,
     loan: 0,
     loanPurpose: "",
 };
+
+const initialStateCustomer = {
+    fullName: '',
+    nationalID: '',
+    createdAt: '',
+}
  
-function reducer(state = initialState, action) {
+function reducer(state = initialStateAccount, action) {
     switch(action.type) {
         case "account/deposit":
             return {...state, balance: state.balance + action.payload};
@@ -46,4 +52,13 @@ function requestLoan(amount, purpose) {
 
 function payloan() {
     return { type: 'account/payLoan'}
+}
+
+
+function createCustomer(fullName, nationalID) {
+    return {
+        type: 'customer/createCustomer', 
+        payload: {fullName, nationalID, createdAt: new Date().toISOString()
+        }
+    }
 }

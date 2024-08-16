@@ -30,8 +30,20 @@ function accountReducer(state = initialStateAccount, action) {
 
 }
 
-function customReducer(state = initialStateAccount) {
-
+function customerReducer(state = initialStateCustomer, action) {
+    switch (action.type) {
+        case 'customer/createCustomer':
+            return {
+                ...state, 
+                fullName: action.payload.fullName,
+                nationalID: action.payload.nationalID,
+                createdAt: action.payload.createdAt,
+        };
+        case 'customer/updateName':
+            return {...state, fullName: action.payload};
+        default: 
+            return state;       
+    }
 }
 
 const store =  createStore(accountReducer)

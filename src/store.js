@@ -12,7 +12,7 @@ const initialStateCustomer = {
     createdAt: '',
 }
  
-function reducer(state = initialStateAccount, action) {
+function accountReducer(state = initialStateAccount, action) {
     switch(action.type) {
         case "account/deposit":
             return {...state, balance: state.balance + action.payload};
@@ -30,7 +30,11 @@ function reducer(state = initialStateAccount, action) {
 
 }
 
-const store =  createStore(reducer)
+function customReducer(state = initialStateAccount) {
+
+}
+
+const store =  createStore(accountReducer)
 
 store.dispatch({type: 'account/deposit', payload: 500})
 store.dispatch({type: 'account/withdraw', payload: 200})
@@ -60,5 +64,10 @@ function createCustomer(fullName, nationalID) {
         type: 'customer/createCustomer', 
         payload: {fullName, nationalID, createdAt: new Date().toISOString()
         }
+    }
+}
+
+function updateNme(fullName) {
+    return { type: 'account/updateName', payload: fullName 
     }
 }

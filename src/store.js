@@ -1,4 +1,4 @@
-import { createStore } from "redux"; 
+import { combineReducers, createStore } from "redux"; 
 
 const initialStateAccount = {
     balance: 0,
@@ -45,6 +45,11 @@ function customerReducer(state = initialStateCustomer, action) {
             return state;       
     }
 }
+
+const rootReducer = combineReducers({
+    account: accountReducer,
+    customer: customerReducer,
+})
 
 const store =  createStore(accountReducer)
 

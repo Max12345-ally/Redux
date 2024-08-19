@@ -51,7 +51,7 @@ const rootReducer = combineReducers({
     customer: customerReducer,
 })
 
-const store =  createStore(accountReducer)
+const store =  createStore(rootReducer)
 
 store.dispatch({type: 'account/deposit', payload: 500})
 store.dispatch({type: 'account/withdraw', payload: 200})
@@ -84,7 +84,11 @@ function createCustomer(fullName, nationalID) {
     }
 }
 
-function updateNme(fullName) {
+function updateName(fullName) {
     return { type: 'account/updateName', payload: fullName 
     }
 }
+
+store.dispatch(createCustomer('Max Bondar', "123556"))
+store.dispatch(deposit(250))
+console.log(store.getState())

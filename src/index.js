@@ -6,7 +6,7 @@ import App from './App';
 import store from './store';
 import { type } from '@testing-library/user-event/dist/type';
 
-store.dispatch({type: 'account/deposit', payload: 250})
+store.dispatch({type: 'account/deposit', payload: 0})
 console.log(store.getState())
 
 

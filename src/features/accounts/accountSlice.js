@@ -38,6 +38,10 @@ const initialState = {
 
 console.log(accountSLice)
 
+export const { deposit, withdraw, requestLoan, payLoan } = accountSLice.actions;
+
+export default accountSLice.reducer;
+
 // export default function accountReducer(state = initialState, action) {
 //     switch(action.type) {
 //         case "account/deposit":

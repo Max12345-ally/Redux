@@ -21,11 +21,21 @@ const customerSlice = createSlice({
                     },
                 }
             },
+            reducer(state, action) {
+                state.fullName = action.payload.fullName
+                state.nationalID = action.payload.nationalID
+                state.createdAt = action.payload.createdAt 
+            }
         },
+        updateName(state, action) {
+            state.fullName = action.payload; 
+        }
     },   
 });
- 
 
+export const {createCustomer, updateName} = customerSlice.actions;
+ 
+export default customerSlice.reducer;
 
 // export default function customerReducer(state = initialState, action) {
 //     switch (action.type) {
